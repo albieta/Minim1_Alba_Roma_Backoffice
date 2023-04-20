@@ -22,7 +22,7 @@
               <td>{{user.email}}</td>
               <td>{{user.role}}</td>
               <td>
-                <button (click)="friendsOfUser(user._id)" class="btn-friends">Faqs</button>
+                <button (click)="friendsOfUser(user._id, user.name)" class="btn-friends">Friends</button>
                 <button (click)="passUser(user)" class="btn-success">Edit</button>
                 <button (click)="confirmDelete(user._id)" class="btn-danger">Delete</button>
               </td>
@@ -42,4 +42,29 @@
         </table>
       </div>
   </div>
+</div>
+<h3 style="text-align:center;">Friends of User: {{ clickedUser }}</h3>
+<div class="small-container">
+  <table class="friend-table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Cool</th>
+        <th>Quote</th>
+        <th>Estado</th>
+        <th>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let friend of userFriends">
+        <td>{{ isUser(friend.user) ? friend.user.name : friend.user }}</td>
+        <td>{{ friend.cool }}</td>
+        <td>{{ friend.quote }}</td>
+        <td>{{ friend.estado }}</td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

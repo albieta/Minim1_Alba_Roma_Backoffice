@@ -10,6 +10,11 @@
   border-radius: 4px;
 }
 
+.small-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
 
 .btn-friends {
   background-color: #98cee4;

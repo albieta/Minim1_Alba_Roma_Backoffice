@@ -16,6 +16,8 @@ export class UserComponent implements OnInit{
   currentPage: number = 1;
   totalPages: number = 1; 
   limit: number = 2; 
+  userFriends: Friend[] = [];
+  clickedUser = '';
 
   constructor( private _userService: UserService, private _friendService: FriendService, private _router: Router, private dialogService: DialogService) { }
 
@@ -39,13 +41,14 @@ export class UserComponent implements OnInit{
     console.log(user._id);
   }
 
-  friendsOfUser(id: string) {
+  friendsOfUser(id: string, name: string) {
     this._friendService.getFriendsOfUser(id).subscribe(data => {
-      console.log(data);
+      this.userFriends = data.friends;
     }, error => {
       console.log(error);
     })
     console.log();
+    this.clickedUser = name;
   }
 
   deleteAUser(id:any){
@@ -69,6 +72,10 @@ export class UserComponent implements OnInit{
 
   addUser(){
     this._router.navigate(['/user']);
+  }
+
+  isUser(user: User | string): user is User {
+    return typeof user !== 'string';
   }
 
   prevPage() {
