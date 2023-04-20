@@ -14,6 +14,8 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { AddOrganizationComponent } from './components/add-organization/add-organization.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { FriendsComponent } from './components/friends/friends.component';
+import { EditFriendComponent } from './components/edit-friend/edit-friend.component';
 
 const routes: Routes = [
   {
@@ -64,7 +66,27 @@ const routes: Routes = [
     path: 'edit-organization/:id',
     component: EditOrganizationComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'friends',
+    component: FriendsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-friend/:id',
+    component: EditFriendComponent,
+    canActivate: [AuthGuard]
+  },
+  /*{
+    path: 'faq',
+    component: AddFaqComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-faq/:id',
+    component: EditFaqComponent,
+    canActivate: [AuthGuard]
+  }*/
 ];
 
 

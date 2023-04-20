@@ -3,6 +3,8 @@ import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user-service.service';
 import { Router } from '@angular/router';
 import { DialogService } from 'src/app/services/dialog-service.service';
+import { Friend } from 'src/app/models/friend';
+import { FriendService } from 'src/app/services/friend-service.service';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +17,7 @@ export class UserComponent implements OnInit{
   totalPages: number = 1; 
   limit: number = 2; 
 
-  constructor( private _userService: UserService, private _router: Router, private dialogService: DialogService) { }
+  constructor( private _userService: UserService, private _friendService: FriendService, private _router: Router, private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -35,6 +37,15 @@ export class UserComponent implements OnInit{
   passUser(user: any) {
     this._router.navigate(['/edit-user/' + user._id]);
     console.log(user._id);
+  }
+
+  friendsOfUser(id: string) {
+    this._friendService.getFriendsOfUser(id).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    })
+    console.log();
   }
 
   deleteAUser(id:any){

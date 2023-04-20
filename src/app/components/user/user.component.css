@@ -1,4 +1,4 @@
-.btn-success, .btn-add {
+.btn-success, .btn-add, .btn-friends {
   background-color: #04AA6D;
   border: none;
   color: white;
@@ -9,6 +9,12 @@
   font-size: 15px;
   border-radius: 4px;
 }
+
+
+.btn-friends {
+  background-color: #98cee4;
+}
+  
   
 .btn-danger {
   background-color: rgb(170, 4, 4);

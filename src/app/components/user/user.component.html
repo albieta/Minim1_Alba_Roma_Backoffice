@@ -22,6 +22,7 @@
               <td>{{user.email}}</td>
               <td>{{user.role}}</td>
               <td>
+                <button (click)="friendsOfUser(user._id)" class="btn-friends">Faqs</button>
                 <button (click)="passUser(user)" class="btn-success">Edit</button>
                 <button (click)="confirmDelete(user._id)" class="btn-danger">Delete</button>
               </td>

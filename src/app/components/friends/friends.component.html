@@ -1,0 +1,45 @@
+<app-navigation></app-navigation>
+  <h2>Friends list</h2>
+  
+  <div class="container">
+    <table class="friend-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Cool</th>
+          <th>Quote</th>
+          <th>Estado</th>
+          <th>
+            <button class="btn-add" (click)="addFriend()">Add FAQ</button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let friend of friends">
+          <td>{{ isUser(friend.user) ? friend.user.name : friend.user }}</td>
+          <td>{{ friend.cool }}</td>
+          <td>{{ friend.quote }}</td>
+          <td>{{ friend.estado }}</td>
+          <td>
+            <button class="btn edit-btn" (click)="editFriend(friend)">
+              <i class="fas fa-edit"></i> Edit
+            </button>
+            <button class="btn delete-btn" (click)="confirmDelete(friend)">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">
+            <div class="pagination">
+              <button class="paginate-btn" [disabled]="currentPage === 1" (click)="prevPage()"><</button>
+              <span>{{ currentPage }}/{{ totalPages }}</span>
+              <button class="paginate-btn" [disabled]="currentPage === totalPages" (click)="nextPage()">></button>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>

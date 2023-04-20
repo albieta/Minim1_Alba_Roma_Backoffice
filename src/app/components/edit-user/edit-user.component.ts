@@ -15,7 +15,7 @@ export class EditUserComponent implements OnInit{
   form: FormGroup;
 
   userId: any;
-  userData: User = { name: '', email: '', role: '', surname: '', password: '' };
+  userData: User = { name: '', email: '', role: '', surname: '', password: '', friends: [] };
   showMessage = false;
 
   constructor(private route: ActivatedRoute, private userService: UserService, private _fb: FormBuilder, 

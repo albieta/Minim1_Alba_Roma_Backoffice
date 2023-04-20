@@ -1,0 +1,29 @@
+<app-navigation></app-navigation>
+<h1>Edit Friend</h1>
+
+<form [formGroup]="form" (ngSubmit)="editFriend()">
+    <div>
+        <label for="user">Id of User:</label>
+        <input type="text" id="user" name="user" formControlName="user" required>
+    </div>
+    <div>
+        <label for="cool">Cool:</label>
+        <select type="cool" id="cool" name="cool" formControlName="cool" required>
+            <option value="true">YES</option>
+            <option value="false">NO</option>
+        </select>
+    </div>
+    <div>
+        <label for="quote">Quote:</label>
+        <input type="text" id="quote" name="quote" formControlName="quote" required>
+    </div>
+    <div>
+        <label for="estado">Estado:</label>
+        <select type="estado" id="estado" name="estado" formControlName="estado" required>
+            <option value="connected">connected</option>
+            <option value="disconnected">disconnected</option>
+        </select>
+    </div>
+    <button type="submit">Save</button>
+    <div *ngIf="showMessage" style="font-style: italic;">Changes were made correctly</div>
+  </form>
